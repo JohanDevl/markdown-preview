@@ -3,7 +3,7 @@
   "name": "markdown-preview",
   "title": "Markdown Preview",
   "description": "A simple way to preview markdown content",
-  "icon": "extension-icon.png",
+  "icon": "main-extension-icon.png",
   "author": "xjo_nd",
   "license": "MIT",
   "commands": [

@@ -8,45 +8,30 @@ marked.setOptions({
   gfm: true,
 });
 
-function MarkdownEditor() {
+function MarkdownInput() {
   const [markdown, setMarkdown] = useState("");
-  const [isEditing, setIsEditing] = useState(true);
   const { push } = useNavigation();
 
-  const handlePreview = () => {
+  const handleSubmit = () => {
     if (markdown.trim()) {
       push(<MarkdownPreview markdown={markdown} />);
     }
   };
 
-  const toggleMode = () => {
-    setIsEditing(!isEditing);
-  };
-
-  if (isEditing) {
-    return (
-      <Form
-        navigationTitle="Markdown Editor"
-        actions={
-          <ActionPanel>
-            <Action.SubmitForm title="Preview Markdown" onSubmit={handlePreview} />
-            <Action
-              title="Clear"
-              shortcut={{ modifiers: ["cmd", "shift"], key: "k" }}
-              onAction={() => setMarkdown("")}
-            />
-            <Action
-              title="Toggle Preview Mode"
-              shortcut={{ modifiers: ["cmd", "shift"], key: "p" }}
-              onAction={toggleMode}
-            />
-          </ActionPanel>
-        }
-      >
-        <Form.TextArea
-          id="markdown"
-          title=""
-          placeholder="Enter your Markdown content here...
+  return (
+    <Form
+      navigationTitle="Markdown Editor"
+      actions={
+        <ActionPanel>
+          <Action.SubmitForm title="Preview Markdown" onSubmit={handleSubmit} />
+          <Action title="Clear" shortcut={{ modifiers: ["cmd", "shift"], key: "k" }} onAction={() => setMarkdown("")} />
+        </ActionPanel>
+      }
+    >
+      <Form.TextArea
+        id="markdown"
+        title=""
+        placeholder="Enter your Markdown content here...
 
 Examples:
 # Heading 1
@@ -74,52 +59,12 @@ code block
 | Table | Column 2 |
 |-------|----------|
 | Row 1 | Data     |"
-          value={markdown}
-          onChange={setMarkdown}
-          enableMarkdown={true}
-          storeValue={false}
-        />
-      </Form>
-    );
-  }
-
-  // Preview mode inline
-  const htmlContent = marked(markdown) as string;
-
-  return (
-    <Detail
-      navigationTitle="Markdown Preview"
-      markdown={markdown}
-      actions={
-        <ActionPanel>
-          <Action title="Back to Editor" shortcut={{ modifiers: ["cmd"], key: "e" }} onAction={toggleMode} />
-          <Action title="Full Preview" shortcut={{ modifiers: ["cmd"], key: "f" }} onAction={handlePreview} />
-          <Action.CopyToClipboard
-            title="Copy Markdown"
-            content={markdown}
-            shortcut={{ modifiers: ["cmd"], key: "c" }}
-          />
-          <Action.CopyToClipboard
-            title="Copy HTML"
-            content={htmlContent}
-            shortcut={{ modifiers: ["cmd", "shift"], key: "c" }}
-          />
-        </ActionPanel>
-      }
-      metadata={
-        <Detail.Metadata>
-          <Detail.Metadata.Label title="Characters" text={markdown.length.toString()} />
-          <Detail.Metadata.Label
-            title="Words"
-            text={markdown
-              .split(/\s+/)
-              .filter((word) => word.length > 0)
-              .length.toString()}
-          />
-          <Detail.Metadata.Label title="Lines" text={markdown.split("\n").length.toString()} />
-        </Detail.Metadata>
-      }
-    />
+        value={markdown}
+        onChange={setMarkdown}
+        enableMarkdown={true}
+        storeValue={false}
+      />
+    </Form>
   );
 }
 
@@ -150,7 +95,6 @@ function MarkdownPreview({ markdown }: MarkdownPreviewProps) {
             content={htmlContent}
             shortcut={{ modifiers: ["cmd", "shift"], key: "c" }}
           />
-          <Action.Paste title="Paste Markdown" content={markdown} shortcut={{ modifiers: ["cmd"], key: "v" }} />
         </ActionPanel>
       }
       metadata={
@@ -171,5 +115,5 @@ function MarkdownPreview({ markdown }: MarkdownPreviewProps) {
 }
 
 export default function PreviewMarkdown() {
-  return <MarkdownEditor />;
+  return <MarkdownInput />;
 }
