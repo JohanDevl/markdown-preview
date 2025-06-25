@@ -30,35 +30,9 @@ function MarkdownInput() {
     >
       <Form.TextArea
         id="markdown"
-        title=""
-        placeholder="Enter your Markdown content here...
-
-Examples:
-# Heading 1
-## Heading 2
-
-**Bold text**
-*Italic text*
-
-- Bullet list
-- Item 2
-
-1. Numbered list
-2. Item 2
-
-[Link](https://example.com)
-
-`inline code`
-
-```
-code block
-```
-
-> Quote
-
-| Table | Column 2 |
-|-------|----------|
-| Row 1 | Data     |"
+        title="Markdown Content"
+        info="Examples: # Heading 1, **Bold text**, *italic text*, - Bullet list, [Link](url), `inline code`"
+        placeholder="Enter your Markdown content here..."
         value={markdown}
         onChange={setMarkdown}
         enableMarkdown={true}
