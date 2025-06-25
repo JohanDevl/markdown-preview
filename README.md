@@ -21,9 +21,17 @@ A simple and efficient Raycast extension for real-time Markdown content preview.
 
 ## Keyboard Shortcuts
 
-- `Cmd + Enter` : Preview Markdown
+### Editor Mode
+
+- `Cmd + Enter` : Preview Markdown (full screen)
+- `Cmd + Shift + P` : Toggle inline preview mode
 - `Cmd + Shift + K` : Clear content
-- `Cmd + Backspace` : Back to editor (from preview)
+
+### Preview Mode
+
+- `Cmd + E` : Back to editor (from inline preview)
+- `Cmd + F` : Full screen preview
+- `Cmd + Backspace` : Back to editor (from full preview)
 - `Cmd + C` : Copy Markdown
 - `Cmd + Shift + C` : Copy generated HTML
 - `Cmd + V` : Paste Markdown

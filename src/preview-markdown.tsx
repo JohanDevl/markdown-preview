@@ -35,7 +35,11 @@ function MarkdownEditor() {
               shortcut={{ modifiers: ["cmd", "shift"], key: "k" }}
               onAction={() => setMarkdown("")}
             />
-            <Action title="Toggle Preview Mode" shortcut={{ modifiers: ["cmd"], key: "p" }} onAction={toggleMode} />
+            <Action
+              title="Toggle Preview Mode"
+              shortcut={{ modifiers: ["cmd", "shift"], key: "p" }}
+              onAction={toggleMode}
+            />
           </ActionPanel>
         }
       >
