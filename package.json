@@ -3,9 +3,14 @@
   "name": "markdown-preview",
   "title": "Markdown Preview",
   "description": "A simple way to preview markdown content",
-  "icon": "main-extension-icon.png",
+  "icon": "md-preview-icon.png",
   "author": "xjo_nd",
   "license": "MIT",
+  "categories": [
+    "Productivity",
+    "Web",
+    "Text"
+  ],
   "commands": [
     {
       "name": "preview-markdown",
