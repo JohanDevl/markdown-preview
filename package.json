@@ -16,7 +16,7 @@
     {
       "name": "preview-markdown",
       "title": "Preview Markdown",
-      "description": "",
+      "description": "Write and preview Markdown content with real-time rendering",
       "mode": "view"
     }
   ],
