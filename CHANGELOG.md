@@ -1,6 +1,6 @@
 # Markdown Preview Changelog
 
-## [1.0.0] - 2025-06-25
+## [1.0.0] - 2025-07-02
 
 ### ✨ Features
 
